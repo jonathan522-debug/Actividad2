@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 5: Imágenes Responsive Pro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <span class="badge">Lab 5 · Responsive Images</span>
+        <h1>Imágenes Responsive como un Pro 🧪</h1>
+        <p>Abre las herramientas de desarrollador (F12) y redimensiona la ventana para ver cómo cambian las imágenes.
+        </p>
+    </header>
+
+    <main class="container">
+
+        <section class="card">
+            <h2>1. Srcset y Sizes <span class="tag">Elección automática</span></h2>
+            <p>
+                El navegador elige la mejor imagen basándose en el ancho de pantalla y la densidad de píxeles (DPI).
+                Mira cómo cambia el archivo servido al ajustar el viewport.
+            </p>
+
+            <img src="https://placehold.co/400x300/111827/f9fafb?text=Fallback+Img" srcset="
+                    https://placehold.co/400x300/0f172a/f9fafb?text=Small+400w 400w,
+                    https://placehold.co/800x600/1d4ed8/f9fafb?text=Medium+800w 800w,
+                    https://placehold.co/1200x900/22c55e/f9fafb?text=Large+1200w 1200w
+                " sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" alt="Ejemplo de srcset"
+                loading="lazy" class="responsive-img">
+
+            <p class="hint">
+                💡 Tip: Inspecciona la imagen en DevTools y mira qué URL está usando en cada tamaño.
+            </p>
+        </section>
+
+        <hr>
+
+        <section class="card">
+            <h2>2. Elemento Picture <span class="tag">Art Direction</span></h2>
+            <p>
+                Aquí no solo cambiamos resolución, también cambiamos la composición:
+                una imagen cuadrada para móviles, otra más panorámica para escritorio.
+            </p>
+
+            <picture>
+                <source media="(min-width: 1024px)"
+                    srcset="https://placehold.co/1200x400/0f766e/f9fafb?text=Desktop+Wide+(Art+Direction)">
+                <source media="(min-width: 768px)"
+                    srcset="https://placehold.co/800x500/4f46e5/f9fafb?text=Tablet+(Art+Direction)">
+                <img src="https://placehold.co/400x400/e11d48/f9fafb?text=Mobile+Square" alt="Ejemplo de art direction"
+                    loading="lazy" class="responsive-img">
+            </picture>
+
+            <p class="hint">
+                🎯 Esto es lo que usarías para cambiar completamente la foto en mobile/desktop
+                (por ejemplo, recortes diferentes para UX).
+            </p>
+        </section>
+
+        <hr>
+
+        <section class="card">
+            <h2>3. Background Image Responsive (CSS)</h2>
+            <p>
+                En este div, la imagen de fondo cambia según los <em>media queries</em> en CSS.
+                No hay etiqueta <code>&lt;img&gt;</code> aquí: todo es fondo.
+            </p>
+
+            <div class="hero-background">
+                <h3>Fondo Responsive 🌍</h3>
+                <p>Cambia el ancho de la ventana para ver cómo el fondo se adapta.</p>
+            </div>
+
+            <p class="hint">
+                👀 Extra: En pantallas retina le pusimos un borde dorado para indicar que se está aplicando la media
+                query HD.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Fin del Ejercicio 5 · Sigue experimentando 🧑‍💻</p>
+    </footer>
+
+</body>
+
+</html>

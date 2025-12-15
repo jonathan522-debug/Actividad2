@@ -1,0 +1,207 @@
+/* Reseteo básico y estilos generales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 24px 16px;
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: #e5e7eb;
+}
+
+/* HEADER PRINCIPAL */
+.main-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.main-header h1 {
+    margin-top: 0.5rem;
+    font-size: clamp(1.8rem, 2.4vw, 2.6rem);
+    text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+}
+
+.main-header p {
+    max-width: 600px;
+    margin: 0.5rem auto 0;
+    opacity: 0.85;
+    font-size: 0.98rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(56, 189, 248, 0.7);
+    color: #bae6fd;
+    background: rgba(15, 23, 42, 0.85);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Tarjetas de sección */
+.card {
+    background: rgba(15, 23, 42, 0.97);
+    padding: 20px 20px 24px;
+    border-radius: 12px;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.card+hr {
+    margin: 2rem 0;
+}
+
+/* HR personalizado */
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(148, 163, 184, 0.7),
+            transparent);
+}
+
+/* Títulos de sección */
+h2 {
+    color: #f9fafb;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    border: 1px solid rgba(129, 140, 248, 0.8);
+    color: #c7d2fe;
+    background: rgba(30, 64, 175, 0.35);
+}
+
+/* Texto */
+.card p {
+    margin-bottom: 1rem;
+    font-size: 0.97rem;
+    opacity: 0.9;
+}
+
+.hint {
+    font-size: 0.88rem;
+    opacity: 0.85;
+    font-style: italic;
+}
+
+em {
+    color: #facc15;
+}
+
+code {
+    background: rgba(15, 23, 42, 0.9);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    font-size: 0.9em;
+}
+
+/* Imágenes fluidas */
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin: 0.5rem 0 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* --------------------------------------------------
+   CASO 3: Lógica para Fondo Responsive
+   -------------------------------------------------- */
+
+.hero-background {
+    width: 100%;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    color: white;
+    text-align: center;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    transition: background-image 0.3s ease-in-out, transform 0.2s ease;
+
+    /* 1. Mobile First (Imagen pequeña por defecto) */
+    background-image: url('https://placehold.co/400x400/0f172a/f9fafb?text=BG+Mobile');
+}
+
+.hero-background h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.hero-background p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.95;
+}
+
+.hero-background:hover {
+    transform: translateY(-3px);
+}
+
+/* 2. Tablet (Media Query) */
+@media (min-width: 600px) {
+    .hero-background {
+        background-image: url('https://placehold.co/800x400/1e3a8a/f9fafb?text=BG+Tablet');
+    }
+}
+
+/* 3. Desktop (Media Query) */
+@media (min-width: 1024px) {
+    body {
+        padding: 32px 24px;
+    }
+
+    .hero-background {
+        background-image: url('https://placehold.co/1200x400/0369a1/f9fafb?text=BG+Desktop');
+        min-height: 300px;
+    }
+}
+
+/* 4. Pantallas de alta densidad (Retina display) */
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .hero-background {
+        border: 2px solid gold;
+        /* Solo para indicar que es pantalla retina en este demo */
+    }
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
